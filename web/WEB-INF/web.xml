@@ -4,9 +4,17 @@
         <servlet-name>SesionController</servlet-name>
         <servlet-class>servlet.SesionController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CarroComprasController</servlet-name>
+        <servlet-class>servlet.CarroComprasController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SesionController</servlet-name>
         <url-pattern>/Sesion_controller.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarroComprasController</servlet-name>
+        <url-pattern>/Carrocompras_controller.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

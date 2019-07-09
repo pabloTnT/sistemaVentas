@@ -22,7 +22,7 @@ import negocio.CompraDto;
  */
 public class CompraDaoImpl implements CompraDao{
 
-    private static final String SQL_INSERT = "INSERT INTO compra (id_compra, id_usuario, id_producto, cantidad) VALUES (?, ?, ?, ?)";
+    private static final String SQL_INSERT = "INSERT INTO compra ( id_usuario, id_producto, cantidad) VALUES ( ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE compra SET id_usuario=?, id_producto=?, cantidad=? WHERE id_compra=?";
     private static final String SQL_DELETE = "DELETE FROM compra WHERE id_compra = ?";
     private static final String SQL_SELECTALL = "SELECT * FROM compra";
@@ -35,10 +35,9 @@ public class CompraDaoImpl implements CompraDao{
         PreparedStatement ps;
         try {
             ps = conn.getCnn().prepareStatement(SQL_INSERT);
-            ps.setInt(1, dto.getIdCompra());
-            ps.setString(2, dto.getIdUsuario());
-            ps.setInt(3, dto.getIdProducto());
-            ps.setInt(4, dto.getCantidad());
+            ps.setString(1, dto.getIdUsuario());
+            ps.setInt(2, dto.getIdProducto());
+            ps.setInt(3, dto.getCantidad());
 
             if (ps.executeUpdate() > 0) {
                 return true;

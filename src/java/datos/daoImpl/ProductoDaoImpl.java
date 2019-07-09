@@ -27,9 +27,29 @@ public class ProductoDaoImpl implements ProductoDao{
     private static final String SQL_DELETE = "DELETE FROM producto WHERE id_producto = ?";
     private static final String SQL_SELECTALL = "SELECT * FROM producto";
     private static final String SQL_SELECTID = "SELECT * FROM producto WHERE id_producto = ?";
+    private static final String SQL_REBAJASTOCK = "UPDATE producto SET stock=? WHERE id_producto=?";
 
     private static final Conexion conn = Conexion.estadoConexion();
     
+    
+        public boolean modificaStock(int stock, int codProducto) throws Exception {
+        PreparedStatement ps;
+        try {
+            ps = conn.getCnn().prepareStatement(SQL_REBAJASTOCK);
+            ps.setInt(1, stock);
+            ps.setInt(2, codProducto);
+
+            if (ps.executeUpdate() > 0) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            conn.cerrarConexion();
+        }
+        return false;
+    }
+        
         @Override
     public boolean crearProducto(ProductoDto dto) throws Exception {
         PreparedStatement ps;
