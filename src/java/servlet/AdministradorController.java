@@ -6,6 +6,7 @@
 package servlet;
 
 import datos.daoImpl.ProductoDaoImpl;
+import datos.daoImpl.UsuarioDaoImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import negocio.ProductoDto;
+import negocio.UsuarioDto;
 
 /**
  *
@@ -62,7 +64,36 @@ public class AdministradorController extends HttpServlet {
                     Logger.getLogger(AdministradorController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 response.sendRedirect("vistaAdministrador.jsp?eliminarProducto="+"ok");
-                
+            }
+            if(request.getParameter("btn_guardarUsuario")!=null){
+                UsuarioDaoImpl usDao = new UsuarioDaoImpl();
+                UsuarioDto usuario = new UsuarioDto();
+                usuario.setIdUsuario(request.getParameter("txt_idUsuario"));
+                usuario.setNombre(request.getParameter("txt_nombreUsuario"));
+                usuario.setApellido(request.getParameter("txt_apellidosUsuario"));
+                usuario.setTipoUsuario(2);
+                usuario.setClave(request.getParameter("txt_contraUsuario"));
+                try {
+                    usDao.crearUsuario(usuario);
+                } catch (Exception ex) {
+                    Logger.getLogger(AdministradorController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                response.sendRedirect("agregarAdministrador.jsp?agregado="+"ok");
+            }
+            if(request.getParameter("btn_guardarCliente")!=null){
+                UsuarioDaoImpl usDao = new UsuarioDaoImpl();
+                UsuarioDto usuario = new UsuarioDto();
+                usuario.setIdUsuario(request.getParameter("txt_idUsuario"));
+                usuario.setNombre(request.getParameter("txt_nombreUsuario"));
+                usuario.setApellido(request.getParameter("txt_apellidosUsuario"));
+                usuario.setTipoUsuario(1);
+                usuario.setClave(request.getParameter("txt_contraUsuario"));
+                try {
+                    usDao.crearUsuario(usuario);
+                } catch (Exception ex) {
+                    Logger.getLogger(AdministradorController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                response.sendRedirect("registroCliente.jsp?agregado="+"ok");
             }
         }
     }

@@ -28,7 +28,7 @@
             <div style="margin-top: 25px; margin-right: 25px; margin-left: 25px">
                 <button align="right" class="button success" name="btn_editarProducto"  data-role="popover"
                         data-popover-text="Crear Administrador" data-popover-position="right" 
-                        onClick="window.open('agregarProducto.jsp', '_blank', 'width=1000,height=600');return false"> <i class="fas fa-user-plus"></i></button>
+                        onClick="window.open('agregarAdministrador.jsp', '_blank', 'width=1000,height=600');return false"> <i class="fas fa-user-plus"></i></button>
                         <button align="left" class="button success  place-right" name="btn_editarProducto"  data-role="popover"
                         data-popover-text="Agregar Productos" data-popover-position="left" 
                         onClick="window.open('agregarProducto.jsp', '_blank', 'width=1000,height=600');return false"> <i class="fas fa-plus"></i></button>

@@ -15,8 +15,10 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     </head>
     <body background="imagenes/fondoSistemaVentas.jpg" >
-        
         <form action="Sesion_controller.do" method="post">
+            <button style="margin-right: 20px" class="button success  place-right" name="btn_editarProducto"  data-role="popover"
+                    data-popover-text="Cliente Nuevo" data-popover-position="left" 
+                    onClick="window.open('registroCliente.jsp', '_blank', 'width=1000,height=600');return false"> <i class="fas fa-user-plus"></i></button>
             <div style="margin-left: 500px; margin-right: 500px">
                 <div align="center" style="margin-top: 50px">
                     <img src="imagenes/logoInicio.png" width="250px" height="250px"/>
