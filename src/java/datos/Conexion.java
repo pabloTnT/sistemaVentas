@@ -19,7 +19,7 @@ public class Conexion {
     private Conexion(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            cnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_sistemaventas?zeroDateTimeBehavior=convertToNull","root","");
+            cnn = DriverManager.getConnection("jdbc:mysql://25.50.156.142:3306/bd_sistemaventas?zeroDateTimeBehavior=convertToNull","root","");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

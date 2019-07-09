@@ -50,10 +50,13 @@
                             <td><%=stock%></td>
                             <td>
                                 <button class="button success" name="btn_editarProducto"  data-role="hint"
-                                        data-hint-text="Agregar Productos" onClick="window.open('agregaCompra.jsp?idProd=' +<%=idProd%>, '_blank', 'width=1000,height=600');
+                                        data-hint-text="Agregar Stock" onClick="window.open('agregaCompra.jsp?idProd=' +<%=idProd%>, '_blank', 'width=1000,height=600');
                                                 return false"> <i class="fas fa-plus"></i></button>
                                 <button class="button success" name="btn_editarProducto"  data-role="hint"
-                                        data-hint-text="Quitar Productos" value="<%=idProd%>" name="btn_eliminarProducto"><i class="fas fa-times-circle"></i></button>
+                                        data-hint-text="Reducir Stock" value="<%=idProd%>" name="btn_eliminarProducto"><i class="fas fa-minus-circle"></i></button>
+                                <button class="button success" name="btn_editarProducto"  data-role="hint"
+                                        data-hint-text="Eliminar Producto" value="<%=idProd%>" name="btn_eliminarProducto"><i class="fas fa-times-circle"></i></button>
+
                             </td>
                         </tr>
                         <%

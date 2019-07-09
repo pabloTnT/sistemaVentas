@@ -8,6 +8,10 @@
         <servlet-name>CarroComprasController</servlet-name>
         <servlet-class>servlet.CarroComprasController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdministradorController</servlet-name>
+        <servlet-class>servlet.AdministradorController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SesionController</servlet-name>
         <url-pattern>/Sesion_controller.do</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>CarroComprasController</servlet-name>
         <url-pattern>/Carrocompras_controller.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdministradorController</servlet-name>
+        <url-pattern>/Administrador_controller.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
