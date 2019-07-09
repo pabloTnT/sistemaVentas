@@ -53,6 +53,17 @@ public class AdministradorController extends HttpServlet {
                 }
                 response.sendRedirect("agregarProducto.jsp?agregado="+"ok");
             }
+            if(request.getParameter("btn_eliminarProducto")!=null){
+                int codProducto = Integer.valueOf(request.getParameter("btn_eliminarProducto"));
+                ProductoDaoImpl dao = new ProductoDaoImpl();
+                try {
+                    dao.eliminarProducto(codProducto);
+                } catch (Exception ex) {
+                    Logger.getLogger(AdministradorController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                response.sendRedirect("vistaAdministrador.jsp?eliminarProducto="+"ok");
+                
+            }
         }
     }
 

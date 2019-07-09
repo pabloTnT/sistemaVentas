@@ -17,10 +17,21 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     </head>
     <body background="imagenes/fondoSistemaVentas.jpg">
-        <form action="Productos_controller.do" method="post">
-            <div align="right" style="margin-top: 25px; margin-right: 25px">
-                <button class="button success" name="btn_editarProducto"  data-role="popover"
-                        data-popover-text="Agregar Productos" data-popover-position="bottom" onClick="window.open('agregarProducto.jsp', '_blank', 'width=1000,height=600');return false"> <i class="fas fa-plus"></i></button>
+        <form action="Administrador_controller.do" method="post">
+            <%
+            if(request.getParameter("eliminarProducto")!=null){
+                %>
+                <script type="text/javascript"> alert("Producto Eliminado");</script>
+                <%
+            }
+            %>
+            <div style="margin-top: 25px; margin-right: 25px; margin-left: 25px">
+                <button align="right" class="button success" name="btn_editarProducto"  data-role="popover"
+                        data-popover-text="Crear Administrador" data-popover-position="right" 
+                        onClick="window.open('agregarProducto.jsp', '_blank', 'width=1000,height=600');return false"> <i class="fas fa-user-plus"></i></button>
+                        <button align="left" class="button success  place-right" name="btn_editarProducto"  data-role="popover"
+                        data-popover-text="Agregar Productos" data-popover-position="left" 
+                        onClick="window.open('agregarProducto.jsp', '_blank', 'width=1000,height=600');return false"> <i class="fas fa-plus"></i></button>
             </div>
             <div style="margin-left: 200px; margin-right: 200px; margin-top: 100px">
                 <table class="table" data-role="table" data-show-search="false" data-rows="10" data-show-rows-steps="false">
@@ -49,13 +60,13 @@
                             <td><%=precioProd%></td>
                             <td><%=stock%></td>
                             <td>
-                                <button class="button success" name="btn_editarProducto"  data-role="hint"
+                                <button class="button success" name="btn_agregarStock"  data-role="hint"
                                         data-hint-text="Agregar Stock" onClick="window.open('agregaCompra.jsp?idProd=' +<%=idProd%>, '_blank', 'width=1000,height=600');
                                                 return false"> <i class="fas fa-plus"></i></button>
                                 <button class="button success" name="btn_editarProducto"  data-role="hint"
-                                        data-hint-text="Reducir Stock" value="<%=idProd%>" name="btn_eliminarProducto"><i class="fas fa-minus-circle"></i></button>
-                                <button class="button success" name="btn_editarProducto"  data-role="hint"
-                                        data-hint-text="Eliminar Producto" value="<%=idProd%>" name="btn_eliminarProducto"><i class="fas fa-times-circle"></i></button>
+                                        data-hint-text="Reducir Stock" value="<%=idProd%>" name="btn_reducirStock"><i class="fas fa-minus-circle"></i></button>
+                                <button class="button success" name="btn_eliminarProducto"  data-role="hint"
+                                        data-hint-text="Eliminar Producto" value="<%=idProd%>"><i class="fas fa-times-circle"></i></button>
 
                             </td>
                         </tr>
